@@ -81,7 +81,7 @@ extension ValidateString on String {
     return true;
   }
 
-  bool get isUrl => Uri.tryParse(this)?.isAbsolute && ! startsWith('data:image') ?? false;
+  bool get isUrl => (Uri.tryParse(this)?.isAbsolute ?? false) && !startsWith('data:image');
 
   Widget getUserProfilePicture({
     required ChatUser? Function(String) getChatUser,
